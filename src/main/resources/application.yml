@@ -1,0 +1,25 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /blog
+
+spring:
+  thymeleaf:
+    cache: false
+  datasource:
+    username: root
+    password: yhx742446272
+    url: jdbc:mysql://43.226.148.127:3306/blog
+    driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis:
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+  config-location: classpath:/mybatis/mybatis.xml
+  pagehelper:
+    helper-dialect: mysql
+    reasonable: true
+    support-methods-arguments: true
+    params: count=countSql
+
+
+
+
