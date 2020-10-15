@@ -11,6 +11,8 @@ spring:
     password: yhx742446272
     url: jdbc:mysql://43.226.148.127:3306/blog
     driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
 mybatis:
   mapper-locations: classpath:/mybatis/mapper/*.xml
   config-location: classpath:/mybatis/mybatis.xml
