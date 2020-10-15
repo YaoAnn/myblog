@@ -10,8 +10,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class CommonController {
 
-   /* @GetMapping()
+    @GetMapping({"/","/index","toindex"})
     public String toindex(){
-        return "redirect:index.html";
-    }*/
+        return "index";
+    }
+
+    @GetMapping("message.html")
+    public String tomessage(){
+        return "message";
+    }
+
+    @GetMapping("/about.html")
+    public String toabout(){
+        return "about";
+    }
+
+
 }
