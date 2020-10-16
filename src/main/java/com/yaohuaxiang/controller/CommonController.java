@@ -12,18 +12,26 @@ public class CommonController {
 
     @GetMapping({"/","/index","toindex"})
     public String toindex(){
-        return "index";
+        return "/views/index";
     }
 
     @GetMapping("message.html")
     public String tomessage(){
-        return "message";
+        return "/views/message";
     }
 
     @GetMapping("/about.html")
     public String toabout(){
-        return "about";
+        return "/views/about";
     }
 
+    @GetMapping("/comment.html")
+    public String tocomment(){
+        return "/views/comment";
+    }
 
+    @GetMapping("/details.html")
+    public String todetails(){
+        return "/views/details";
+    }
 }

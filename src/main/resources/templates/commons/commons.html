@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>公共页面</title>
+</head>
+<body>
+    <!--顶端部分-->
+    <div class="header" th:fragment="topBar">
+        <div class="header-wrap">
+            <h1 class="logo pull-left">
+                <a th:href="@{/}">
+                    <img th:src="@{/res/static/images/logo.png}" alt="" class="logo-img">
+                    <img th:src="@{/res/static/images/logo-text.png}" alt="" class="logo-text">
+                </a>
+            </h1>
+
+            <div class="blog-nav pull-right">
+                <ul class="layui-nav pull-left">
+                    <li class="layui-nav-item layui-this"><a th:href="@{/}">首页</a></li>
+                    <li class="layui-nav-item"><a th:href="@{/message.html}">留言</a></li>
+                    <li class="layui-nav-item"><a th:href="@{/about.html}">关于</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!--底面部分-->
+    <div class="footer" th:fragment="bottomBar">
+        <p>
+            <span>&copy; 2020</span>
+            <span><a href="http://www.layui.com" target="_blank">layui.com</a></span>
+            <span>MIT license</span>
+        </p>
+        <p><span>人生就是一场修行</span></p>
+    </div>
+</body>
+</html>
