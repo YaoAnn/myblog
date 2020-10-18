@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class CommonController {
 
-    @GetMapping({"/","/index","toindex"})
+    @GetMapping({"/","/index","toindex",""})
     public String toindex(){
         return "/views/index";
     }

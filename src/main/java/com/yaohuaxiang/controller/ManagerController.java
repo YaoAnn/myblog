@@ -2,6 +2,7 @@ package com.yaohuaxiang.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -12,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/manager")
 public class ManagerController {
-    @GetMapping({"","/login.html"})
-    public String toManager(){
+    @RequestMapping("")
+    public String toManagerLogin(){
         return "/manager/login";
     }
 
@@ -22,17 +23,17 @@ public class ManagerController {
         return "/manager/index";
     }
 
-    @RequestMapping("/comment.html")
+    @GetMapping("/comment.html")
     public String toManagerComment(){
         return "/manager/comment";
     }
 
-    @RequestMapping("/about.html")
+    @GetMapping("/about.html")
     public String toManagerAbout(){
         return "/manager/about";
     }
 
-    @RequestMapping("/message.html")
+    @GetMapping("/message.html")
     public String toManagerMessage(){
         return "/manager/message";
     }

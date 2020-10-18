@@ -39,18 +39,31 @@ public class LoginSecurity extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()     // 对请求进行验证
-                .antMatchers("/*").permitAll()//所有人可以访问
+                .antMatchers("/*").permitAll()//所有人可以访问,包含登录页面/manager
+                //.antMatchers("/manager").permitAll()//登录页面所有人可以访问
+                //.antMatchers("/manager/login.html").permitAll()//登录页面所有人可以访问
                 .antMatchers("/manager/*").hasRole("manager");     // mnanager目录下必须有manager权限
 
         //开启登录页，没有权限默认跳转
-        http.formLogin().loginPage("/manager").successForwardUrl("/manager/index.html");
+        http.formLogin().loginPage("/manager")//指定登录页面，登录页面表单默认action=/login，method=post
+                .loginProcessingUrl("/manager/index.html")//修改登录界面表单默认action,可以不写，表单不要action属性，默认登录成功，执行defaultSuccessUrl，推荐不写
+                .defaultSuccessUrl("/manager/index.html");//指定登录成功跳转页面
+
+        //关闭csrf功能
+        http.csrf().disable();
+        //登出
+        http.logout().logoutUrl("/manager/logout")//设置登出的请求路径
+                .logoutSuccessUrl("/manager");//设置登出成功后的页面,返回登陆页面
+
+        //开启记住我,自定义remember参数
+        http.rememberMe().rememberMeParameter("remember");
 
     }
 
     //认证,用于数据库，失败
-    /*@Override
+   /* @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(passwordEncoder())
+        auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(passwordEncoder()).withDefaultSchema()
                 .usersByUsernameQuery("select username,password,enable from manager where username = ?")
                 .authoritiesByUsernameQuery("select username,role from manager where username = ?");
     }*/

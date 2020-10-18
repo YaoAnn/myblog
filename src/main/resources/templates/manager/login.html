@@ -9,19 +9,23 @@
     <div class="admin_login_wrap">
         <div class="adming_login_border">
             <div class="admin_input">
-                <form th:action="@{/manager/index.html}" method="post">
+                <form  method="post" th:action="@{/manager/index.html}">
                     <ul class="admin_items">
                         <li>
-                            <label for="user">用户名：</label>
-                            <input type="text" name="username" value="admin" id="user" size="40" class="admin_input_style" />
+                            用户名：<br>
+                            <input type="text"  name="username"  size="40" class="admin_input_style" />
                         </li>
                         <li>
-                            <label for="pwd">密码：</label>
-                            <input type="password" name="pwd" value="admin" id="pwd" size="40" class="admin_input_style" />
+                           密码：<br>
+                            <input type="password" name="password"  size="40" class="admin_input_style" />
+                        </li>
+                        <li>
+                            <input type="checkbox" tabindex="3" name="remember" />记住我
                         </li>
                         <li>
                             <input type="submit" tabindex="3" value="登录" class="btn btn-primary" />
                         </li>
+
                     </ul>
                 </form>
             </div>
