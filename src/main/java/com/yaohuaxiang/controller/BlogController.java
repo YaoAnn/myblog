@@ -1,14 +1,18 @@
 package com.yaohuaxiang.controller;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import com.yaohuaxiang.bean.Blog;
 import com.yaohuaxiang.bean.Comment;
+import com.yaohuaxiang.bean.Message;
 import com.yaohuaxiang.service.BlogService;
 import com.yaohuaxiang.service.CommentService;
+import com.yaohuaxiang.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -22,6 +26,8 @@ public class BlogController {
     BlogService blogService;
     @Autowired
     CommentService commentService;
+    @Autowired
+    MessageService messageService;
 
     @GetMapping({"/","/index","toindex",""})
     public String toindex(Model model){
@@ -30,8 +36,13 @@ public class BlogController {
         return "/views/index";
     }
 
-    @GetMapping("message.html")
-    public String tomessage(){
+    @RequestMapping("message.html")
+    public String tomessage(String content , Model model){
+        if(content !=null && content.length() != 0){
+            messageService.addMessage(content);
+        }
+        List<Message> messages = messageService.getAllMessage();
+        model.addAttribute("messages",messages);
         return "/views/message";
     }
 
@@ -41,12 +52,16 @@ public class BlogController {
     }
 
     @GetMapping("/comment.html")
-    public String tocomment(){
+    public String tocomment(Integer bid , Model model){
+        model.addAttribute("bid",bid);
         return "/views/comment";
     }
 
-    @GetMapping("/details.html/{bid}")
-    public String todetails(@PathVariable("bid")Integer bid,Model model){
+    @RequestMapping("/details.html/{bid}")
+    public String todetails(@PathVariable("bid")Integer bid,Model model ,String content){
+        if(content!=null && content.length()!=0){
+            commentService.addCommentToBlogWithBlogId(bid,content);
+        }
         Blog blog = blogService.getBlogById(bid);
         List<Comment> comments = commentService.getAllCommentWithBlogId(bid);
         model.addAttribute("blog",blog);

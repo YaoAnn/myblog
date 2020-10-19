@@ -22,7 +22,7 @@
                 <!--博客内容，使用循环获取-->
                 <div class="item" th:each="blog:${blogs}">
                     <div class="item-box  layer-photos-demo1 layer-photos-demo">
-                        <h3><a th:href="@{'details.html/'+${blog.getBid()}}" th:text="${blog.getTitle()}"></a></h3>
+                        <h3><a th:href="@{'/details.html/'+${blog.getBid()}}" th:text="${blog.getTitle()}"></a></h3>
                         <h5>发布于：<span th:text="${blog.getTime()}"></span></h5>
                         <p th:text="${blog.getContent()}"></p>
                         <img th:src="@{/res/static/images/item.png}" alt="欢迎您，比心">
@@ -33,9 +33,9 @@
                 </div>
             </div>
 
-            <div class="item-btn">
+           <!-- <div class="item-btn">
                 <button class="layui-btn layui-btn-normal">下一页</button>
-            </div>
+            </div>-->
         </div>
     </div>
 

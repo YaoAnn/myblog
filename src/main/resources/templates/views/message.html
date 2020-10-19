@@ -15,22 +15,22 @@
 		<div class="container container-message">
 			<div class="contar-wrap" id="contar-wrap">
 				<div class="item-btn">
-					<form class="layui-form" action="">
+					<form class="layui-form" th:action="@{/message.html}" method="post">
 						<div class="layui-form-item layui-form-text">
-							<textarea  class="layui-textarea" id="LAY-msg-content" style="resize:none"></textarea>
+							<textarea  class="layui-textarea" id="LAY-msg-content" name="content" style="resize:none"></textarea>
 						</div>
 						<div>
-							<input type="submit" class="layui-btn layui-btn-normal" id="item-btn" />
+							<input type="submit" class="layui-btn layui-btn-normal" id="item-btn" value="留言" />
 						</div>
 					</form>
 				</div>
 
-				<div id="LAY-msg-box">
+				<div id="LAY-msg-box" th:each="message:${messages}">
 					<div class="info-box">
 						<div class="info-item">
-							<img class="info-img" src="../res/static/images/info-img.png" alt="">
+							<img class="info-img" th:src="@{/res/static/images/info-img.png}" >
 							<div class="info-text">
-								<p class="info-intr">获取留言内容</p>
+								<p class="info-intr" th:text="${message.getContent()}"></p>
 							</div>
 						</div>
 					</div>

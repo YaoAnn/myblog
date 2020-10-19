@@ -21,4 +21,9 @@ public class CommentServiceImpl implements CommentService {
     public List<Comment> getAllCommentWithBlogId(Integer bid) {
         return commentMapper.getAllCommentWithBlogId(bid);
     }
+
+    @Override
+    public void addCommentToBlogWithBlogId(Integer bid, String content) {
+        commentMapper.addCommentToBlogWithBlogId(bid,content);
+    }
 }

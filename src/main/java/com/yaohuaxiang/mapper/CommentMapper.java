@@ -14,4 +14,7 @@ import java.util.List;
 public interface CommentMapper {
     @Select("select * from comments where bid = #{bid}")
     List<Comment> getAllCommentWithBlogId(Integer bid);
+
+    @Select("insert into comments values(null,#{content},#{bid})")
+    void addCommentToBlogWithBlogId(Integer bid,String content);
 }

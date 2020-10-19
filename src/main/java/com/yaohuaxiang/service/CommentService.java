@@ -10,4 +10,5 @@ import java.util.List;
  */
 public interface CommentService {
     List<Comment> getAllCommentWithBlogId(Integer bid);
+    void addCommentToBlogWithBlogId(Integer bid,String content);
 }

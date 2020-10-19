@@ -13,16 +13,17 @@
 
     <div class="container-wrap">
         <div class="container container-message container-details container-comment">
-            <div class="contar-wrap">
+            <div class="contar-wrap" id="contar-wrap">
 
-                <form class="layui-form" action="">
+                <form class="layui-form" th:action="@{'/details.html/'+${bid}}" method="post">
                     <div class="layui-form-item layui-form-text">
                         <textarea class="layui-textarea" style="resize:none" placeholder="评论点什么啊" name="content"></textarea>
                     </div>
-                    <div class="btnbox">
-                        <a th:href="@{'/details.html/'+ ${#httpServletRequest.getAttribute('bid')}}" id="sure">
+                    <div>
+                        <!--<a th:href="@{'/details.html/'+${bid}}" id="sure">
                             评论
-                        </a>
+                        </a>-->
+                        <input type="submit" value="评论" class="layui-btn layui-btn-normal" id="item-btn" >
                     </div>
                 </form>
             </div>
