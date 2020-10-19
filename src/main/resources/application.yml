@@ -1,5 +1,5 @@
 server:
-  port: 8090
+  port: 9522
   servlet:
     context-path: /blog
 
@@ -9,7 +9,7 @@ spring:
   datasource:
     username: root
     password: yhx742446272
-    url: jdbc:mysql://43.226.148.127:3306/blog
+    url: jdbc:mysql://43.226.148.127:3306/blog?serverTimezone=Asia/Shanghai #加上时区，不然从数据库中获取时间有时差。
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
 

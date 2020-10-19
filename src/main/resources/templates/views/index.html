@@ -10,7 +10,7 @@
 
 <body class="lay-blog">
     <!--顶端部分-->
-    <div th:replace="commons/commons::topBar"></div>
+    <div th:replace="commons/blogCommons::topBar"></div>
 
     <!--中间部分-->
     <div class="container-wrap">
@@ -20,11 +20,11 @@
                     <p><i class="layui-icon layui-icon-speaker"></i><span>欢迎来到我的博客</span></p>
                 </h4>
                 <!--博客内容，使用循环获取-->
-                <div class="item">
+                <div class="item" th:each="blog:${blogs}">
                     <div class="item-box  layer-photos-demo1 layer-photos-demo">
-                        <h3><a th:href="details.html">此处应为博客标题</a></h3>
-                        <h5>发布于：<span>此处应为博客时间</span></h5>
-                        <p>此处应为博客内容</p>
+                        <h3><a th:href="@{'details.html/'+${blog.getBid()}}" th:text="${blog.getTitle()}"></a></h3>
+                        <h5>发布于：<span th:text="${blog.getTime()}"></span></h5>
+                        <p th:text="${blog.getContent()}"></p>
                         <img th:src="@{/res/static/images/item.png}" alt="欢迎您，比心">
                     </div>
                     <div class="comment count">
@@ -40,7 +40,7 @@
     </div>
 
     <!--底面部分-->
-    <div th:replace="commons/commons::bottomBar"></div>
+    <div th:replace="commons/blogCommons::bottomBar"></div>
 
    <!-- <script th:src="@{/res/layui/layui.js}"></script>
     <script>
