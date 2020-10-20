@@ -1,5 +1,6 @@
 package com.yaohuaxiang.service;
 
+import com.yaohuaxiang.bean.BlogWithComments;
 import com.yaohuaxiang.bean.Comment;
 
 import java.util.List;
@@ -11,4 +12,6 @@ import java.util.List;
 public interface CommentService {
     List<Comment> getAllCommentWithBlogId(Integer bid);
     void addCommentToBlogWithBlogId(Integer bid,String content);
+    List<BlogWithComments> getAllComment();
+    void deleteCommentById(Integer cid);
 }

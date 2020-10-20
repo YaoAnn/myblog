@@ -7,20 +7,25 @@
     <link rel="stylesheet" type="text/css" th:href="@{/manager/css/main.css}"/>
 </head>
 <body>
-<!--头部信息-->
-<div th:replace="commons/managerCommons::topBar"></div>
+    <!--头部信息-->
+    <div th:replace="commons/managerCommons::topBar"></div>
 
-<!--侧边栏-->
-<div th:replace="commons/managerCommons::sideBar"></div>
+    <!--侧边栏-->
+    <div th:replace="commons/managerCommons::sideBar"></div>
 
-<div class="main-wrap">
-    <div class="result-wrap">
-        <div class="result-title">
-            <h1>
-
-            </h1>
-        </div>
+    <div class="result-title">
+        <table width="100%" border="1px;" style="border:#f4f4f4">
+            <tr>
+                <th width="15%"><B>留言内容</B></th>
+                <th width="15%"><B>操作：</B></th>
+            </tr>
+            <tr  style="text-align: center" th:each="message:${messages}">
+                <td width="15%" th:text="${message.getContent()}"></td>
+                <td width="15%">
+                    <a th:href="@{'/manager/deleteMessage/'+${message.getMid()}}">删除</a>
+                </td>
+            </tr>
+        </table>
     </div>
-</div>
 </body>
 </html>

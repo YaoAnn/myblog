@@ -1,5 +1,6 @@
 package com.yaohuaxiang.serviceImpl;
 
+import com.yaohuaxiang.bean.BlogWithComments;
 import com.yaohuaxiang.bean.Comment;
 import com.yaohuaxiang.mapper.CommentMapper;
 import com.yaohuaxiang.service.CommentService;
@@ -25,5 +26,15 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public void addCommentToBlogWithBlogId(Integer bid, String content) {
         commentMapper.addCommentToBlogWithBlogId(bid,content);
+    }
+
+    @Override
+    public List<BlogWithComments> getAllComment() {
+        return commentMapper.getAllComment();
+    }
+
+    @Override
+    public void deleteCommentById(Integer cid) {
+        commentMapper.deleteCommentById(cid);
     }
 }

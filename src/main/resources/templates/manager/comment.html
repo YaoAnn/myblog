@@ -13,21 +13,21 @@
     <!--侧边栏-->
     <div th:replace="commons/managerCommons::sideBar"></div>
 
-    <div class="main-wrap">
-        <div class="result-wrap">
-            <div class="result-title">
-                <h1>
-                    <table width="100%" border="1px;" style="border:#f4f4f4">
-                        <tr>
-                            <th width="15%"><B>博客标题：</B></th>
-                            <th width="15%"><B>发布时间</B></th>
-                            <th width="15%"><B>博客内容</B></th>
-                            <th width="15%"><B>操作：</B></th>
-                        </tr>
-                    </table>
-                </h1>
-            </div>
-        </div>
+    <div class="result-title">
+        <table width="100%" border="1px;" style="border:#f4f4f4">
+            <tr>
+                <th width="15%"><B>博客标题：</B></th>
+                <th width="15%"><B>评论内容</B></th>
+                <th width="15%"><B>操作：</B></th>
+            </tr>
+            <tr th:each="comment:${comments}" style="text-align: center">
+                <td width="15%" th:text="${comment.getTitle()}"></td>
+                <td width="15%" th:text="${comment.getContent()}"></td>
+                <td width="15%">
+                    <a th:href="@{'/manager/deleteComment/'+${comment.getCid()}}">删除</a>
+                </td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>

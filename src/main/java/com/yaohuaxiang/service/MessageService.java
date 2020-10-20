@@ -13,4 +13,5 @@ import java.util.List;
 public interface MessageService {
     List<Message> getAllMessage();
     void addMessage(String content);
+    void deleteMessageById(Integer mid);
 }

@@ -8,8 +8,8 @@ spring:
     cache: false
   datasource:
     username: root
-    password: yhx742446272
-    url: jdbc:mysql://43.226.148.127:3306/blog?serverTimezone=Asia/Shanghai #加上时区，不然从数据库中获取时间有时差。
+    password: yhx5407582588
+    url: jdbc:mysql://47.98.219.111:3306/MyBlog?serverTimezone=Asia/Shanghai #加上时区，不然从数据库中获取时间有时差。
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
 

@@ -25,4 +25,9 @@ public class MessageServiceImpl implements MessageService {
     public void addMessage(String content) {
         messageMapper.addMessage(content);
     }
+
+    @Override
+    public void deleteMessageById(Integer mid) {
+        messageMapper.deleteMessageById(mid);
+    }
 }

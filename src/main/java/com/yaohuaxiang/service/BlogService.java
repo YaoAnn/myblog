@@ -11,4 +11,7 @@ import java.util.List;
 public interface BlogService {
     List<Blog> getAllBlog();
     Blog getBlogById(Integer bid);
+    void addBlog(String title , String content);
+    void deleteBlogById(Integer bid);
+    void updateBlogById(Integer bid ,String title , String content);
 }

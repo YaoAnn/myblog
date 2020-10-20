@@ -27,4 +27,19 @@ public class BlogServiceImpl implements BlogService {
     public Blog getBlogById(Integer bid) {
         return blogMapper.getBlogById(bid);
     }
+
+    @Override
+    public void addBlog(String title, String content) {
+        blogMapper.addBlog(title,content);
+    }
+
+    @Override
+    public void deleteBlogById(Integer bid) {
+        blogMapper.deleteBlogById(bid);
+    }
+
+    @Override
+    public void updateBlogById(Integer bid, String title, String content) {
+        blogMapper.updateBlogById(bid,title,content);
+    }
 }

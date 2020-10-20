@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>更新博客</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/manager/css/common.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/manager/css/main.css}"/>
+</head>
+<body>
+    <!--头部信息-->
+    <div th:replace="commons/managerCommons::topBar"></div>
+
+    <!--侧边栏-->
+    <div th:replace="commons/managerCommons::sideBar"></div>
+
+    <div class="result-title">
+
+        <form th:action="@{'/manager/updateBlog/'+${blog.getBid()}}" method="post"  >
+            <table width="100%" border="1px;" style="border:#f4f4f4">
+                <!--<tr>
+                    <td colspan="2" style="text-align: center">
+                        <input type="hidden" th:value="${blog.getBid()}" name="bid">
+                    </td>
+                </tr>-->
+
+                <tr style="text-align: center">
+                    <th><B>博客标题：</B></th>
+                    <td>
+                        <input type="text" th:value="${blog.getTitle()}" name="title">
+                    </td>
+                </tr>
+                <tr style="text-align: center">
+                    <th ><B>博客内容：</B></th>
+                    <td >
+                        <textarea name="content">[[${blog.getContent()}]]</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center">
+                        <input type="submit" value="修改">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

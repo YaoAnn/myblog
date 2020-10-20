@@ -1,6 +1,7 @@
 package com.yaohuaxiang.mapper;
 
 import com.yaohuaxiang.bean.Message;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
@@ -19,4 +20,7 @@ public interface MessageMapper {
 
     @Insert("insert into messages values(null , #{content})")
     void addMessage(String content);
+
+    @Delete("delete from messages where mid = #{mid}")
+    void deleteMessageById(Integer mid);
 }
